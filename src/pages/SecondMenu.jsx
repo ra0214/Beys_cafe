@@ -1,20 +1,18 @@
 import React from "react";
 import HeaderMenu from "../components/organisms/HeaderMenu";
-import FondoMenu from "../components/atoms/FondoMenu";
-import ListaImagenesMenu from "../components/atoms/ListaImagenesMenu";
+import ListaImagenesSecondMenu from "../components/atoms/ListaImagenesMenu";
 import LineaHorizontal from "../components/atoms/LineaHorizontal";
-import ImagenesMenu from "../components/atoms/ImagenesMenu";
+import ImagenesSecondMenu from "../components/atoms/ImagenesMenu";
 import Footer from "../components/organisms/Footer";
 import NavigationButton from "../components/atoms/NavigationButton";
 
-function Menu() {
+function SecondMenu() {
     return(
         <div>
              <HeaderMenu/>
-             <FondoMenu/>
-             <ListaImagenesMenu/>
+             <ListaImagenesSecondMenu/>
              <LineaHorizontal/>
-             <ImagenesMenu/>
+             <ImagenesSecondMenu/>
              <div className="flex justify-center mt-4">
                 <NavigationButton to="/menu">1</NavigationButton>
                 <NavigationButton to="/second-menu">2</NavigationButton>
@@ -24,4 +22,4 @@ function Menu() {
     )
 }
 
-export default Menu;
+export default SecondMenu;

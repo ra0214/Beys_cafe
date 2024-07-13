@@ -1,10 +1,10 @@
 import React from 'react';
-import { lista } from "../../data/Background";
+import { pilaMenu } from "../../data/Background";
 
-function ListaImagenesMenu() {
+function ImagenesSecondMenu() {
   return (
-    <div className="grid grid-cols-3 justify-items-center w-full mt-[4%]">
-      {lista.map((item, index) => (
+    <div className="grid grid-cols-3 justify-items-center gap-y-3 w-full">
+      {pilaMenu.map((item, index) => (
         <img
           key={index}
           src={item.image}
@@ -16,4 +16,4 @@ function ListaImagenesMenu() {
   );
 }
 
-export default ListaImagenesMenu;
+export default ImagenesSecondMenu;
