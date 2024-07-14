@@ -7,6 +7,7 @@ import SecondMenu from './pages/SecondMenu'
 import './App.css'
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
+import OptionMenu from './pages/OptionMenu'
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/second-menu" element={<SecondMenu />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/register' element={<RegisterPage />}/>
+        <Route path='/option-menu' element={<OptionMenu/>}/>
       </Routes>
     </Router>
   )
