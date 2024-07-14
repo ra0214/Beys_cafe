@@ -69,7 +69,7 @@ const pilaOptionMenu= [
 
 const pilaOptionMenu1= [
     {image: 'imagen1.jpg', link: '/'},
-    {image: 'imagen2.jpg', link: '/'},
+    {image: 'imagen2.jpeg', link: '/'},
 ]
 
 const listaOptionMenu= [
@@ -80,7 +80,7 @@ const listaOptionMenu= [
 
 const listaOptionMenu1= [
     {image: 'imagen1.jpg', link: '/'},
-    {image: 'imagen2.jpg', link: '/'},
+    {image: 'imagen2.jpeg', link: '/'},
 ]
 
 export {background, lista, pila, menu, pilaMenu, listaMenu, pilaSecondMenu, listaSecondMenu, login, pilaOptionMenu, pilaOptionMenu1, listaOptionMenu, listaOptionMenu1};
