@@ -9,7 +9,7 @@ function Background() {
           <img
             src={item.image}
             alt={item.description || ''}
-            className="w-[100%] h-[95%] rounded-md"
+            className="w-[100%] h-[100%] rounded-md"
           />
         </div>
       ))}

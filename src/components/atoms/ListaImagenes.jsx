@@ -3,7 +3,7 @@ import { lista } from "../../data/Background";
 
 function ListaImagenes() {
   return (
-    <div className="grid grid-cols-3 justify-items-center gap-y-3 w-full">
+    <div className="grid grid-cols-3 justify-items-center gap-y-3 w-full mt-[2%]">
       {lista.map((item, index) => (
         <img
           key={index}
