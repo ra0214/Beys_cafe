@@ -83,4 +83,48 @@ const listaOptionMenu1= [
     {image: 'imagen2.jpeg', link: '/'},
 ]
 
-export {background, lista, pila, menu, pilaMenu, listaMenu, pilaSecondMenu, listaSecondMenu, login, pilaOptionMenu, pilaOptionMenu1, listaOptionMenu, listaOptionMenu1};
+const pilaSecondOptionMenu= [
+    {image: 'imagen1.jpg', link: '/'},
+    {image: 'imagen2.jpeg', link: '/second-menu'},
+    {image: 'imagen3.jpeg', link: ''},
+]
+
+const pilaSecondOptionMenu1= [
+    {image: 'imagen1.jpg', link: '/'},
+    {image: 'imagen2.jpeg', link: '/'},
+]
+
+const listaSecondOptionMenu= [
+    {image: 'imagen1.jpg', link: '/'},
+    {image: 'imagen2.jpeg', link: '/second-menu'},
+    {image: 'imagen3.jpeg', link: ''},
+]
+
+const listaSecondOptionMenu1= [
+    {image: 'imagen1.jpg', link: '/'},
+    {image: 'imagen2.jpeg', link: '/'},
+]
+
+const pilaThirdOptionMenu= [
+    {image: 'imagen1.jpg', link: '/'},
+    {image: 'imagen2.jpeg', link: '/second-menu'},
+    {image: 'imagen3.jpeg', link: ''},
+]
+
+const pilaThirdOptionMenu1= [
+    {image: 'imagen1.jpg', link: '/'},
+    {image: 'imagen2.jpeg', link: '/'},
+]
+
+const listaThirdOptionMenu= [
+    {image: 'imagen1.jpg', link: '/'},
+    {image: 'imagen2.jpeg', link: '/second-menu'},
+    {image: 'imagen3.jpeg', link: ''},
+]
+
+const listaThirdOptionMenu1= [
+    {image: 'imagen1.jpg', link: '/'},
+    {image: 'imagen2.jpeg', link: '/'},
+]
+
+export {background, lista, pila, menu, pilaMenu, listaMenu, pilaSecondMenu, listaSecondMenu, login, pilaOptionMenu, pilaOptionMenu1, listaOptionMenu, listaOptionMenu1, pilaSecondOptionMenu, pilaSecondOptionMenu1, listaSecondOptionMenu, listaSecondOptionMenu1, pilaThirdOptionMenu, pilaThirdOptionMenu1, listaThirdOptionMenu, listaThirdOptionMenu1};

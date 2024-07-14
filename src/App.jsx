@@ -8,6 +8,8 @@ import './App.css'
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import OptionMenu from './pages/OptionMenu'
+import SecondOptionMenu from './pages/SecondOptionMenu'
+import ThirdOptionMenu from './pages/ThirdOptionMenu'
 
 function App() {
 
@@ -21,6 +23,8 @@ function App() {
         <Route path='/login' element={<LoginPage />} />
         <Route path='/register' element={<RegisterPage />}/>
         <Route path='/option-menu' element={<OptionMenu/>}/>
+        <Route path='/second-option-menu' element={<SecondOptionMenu/>}/>
+        <Route path='/third-option-menu' element={<ThirdOptionMenu/>}/>
       </Routes>
     </Router>
   )

@@ -1,23 +1,23 @@
 import React from "react";
 import HeaderMenu from "../components/organisms/HeaderMenu";
 import Footer from "../components/organisms/Footer";
-import ImagenesOptionMenu from "../components/atoms/ImagenesOptionMenu";
+import ImagenesThirdOptionMenu from "../components/atoms/ImagenesThirdOptionMenu";
 import LineaHorizontalOptionMenu from "../components/atoms/LineaHorizontalOption";
-import ListaImagenesOptionMenu from "../components/atoms/ListaImagenesOptionMenu";
+import ListaImagenesThirdOptionMenu from "../components/atoms/ListaImagenesThirdOptionMenu";
 
-function OptionMenu() {
+function ThirdOptionMenu() {
     return (
         /*<div className="min-h-screen flex flex-col">*/
         <div>
             <HeaderMenu />
             <div className="flex-grow">
-                <ImagenesOptionMenu />
+                <ImagenesThirdOptionMenu />
                 <LineaHorizontalOptionMenu />
-                <ListaImagenesOptionMenu />
+                <ListaImagenesThirdOptionMenu />
             </div>
             <Footer />
         </div>
     );
 }
 
-export default OptionMenu;
+export default ThirdOptionMenu;
