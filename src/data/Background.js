@@ -127,4 +127,69 @@ const listaThirdOptionMenu1= [
     {image: 'imagen2.jpeg', link: '/'},
 ]
 
-export {background, lista, pila, menu, pilaMenu, listaMenu, pilaSecondMenu, listaSecondMenu, login, pilaOptionMenu, pilaOptionMenu1, listaOptionMenu, listaOptionMenu1, pilaSecondOptionMenu, pilaSecondOptionMenu1, listaSecondOptionMenu, listaSecondOptionMenu1, pilaThirdOptionMenu, pilaThirdOptionMenu1, listaThirdOptionMenu, listaThirdOptionMenu1};
+const pilaFourthOptionMenu= [
+    {image: 'imagen1.jpg', link: '/'},
+    {image: 'imagen2.jpeg', link: '/second-menu'},
+    {image: 'imagen3.jpeg', link: ''},
+]
+
+const pilaFourthOptionMenu1= [
+    {image: 'imagen1.jpg', link: '/'},
+    {image: 'imagen2.jpeg', link: '/'},
+]
+
+const listaFourthOptionMenu= [
+    {image: 'imagen1.jpg', link: '/'},
+    {image: 'imagen2.jpeg', link: '/second-menu'},
+    {image: 'imagen3.jpeg', link: ''},
+]
+
+const listaFourthOptionMenu1= [
+    {image: 'imagen1.jpg', link: '/'},
+    {image: 'imagen2.jpeg', link: '/'},
+]
+
+const pilaFifthOptionMenu= [
+    {image: 'imagen1.jpg', link: '/'},
+    {image: 'imagen2.jpeg', link: '/second-menu'},
+    {image: 'imagen3.jpeg', link: ''},
+]
+
+const pilaFifthOptionMenu1= [
+    {image: 'imagen1.jpg', link: '/'},
+    {image: 'imagen2.jpeg', link: '/'},
+]
+
+const listaFifthOptionMenu= [
+    {image: 'imagen1.jpg', link: '/'},
+    {image: 'imagen2.jpeg', link: '/second-menu'},
+    {image: 'imagen3.jpeg', link: ''},
+]
+
+const listaFifthOptionMenu1= [
+    {image: 'imagen1.jpg', link: '/'},
+    {image: 'imagen2.jpeg', link: '/'},
+]
+
+const pilaSixthOptionMenu= [
+    {image: 'imagen1.jpg', link: '/'},
+    {image: 'imagen2.jpeg', link: '/second-menu'},
+    {image: 'imagen3.jpeg', link: ''},
+]
+
+const pilaSixthOptionMenu1= [
+    {image: 'imagen1.jpg', link: '/'},
+    {image: 'imagen2.jpeg', link: '/'},
+]
+
+const listaSixthOptionMenu= [
+    {image: 'imagen1.jpg', link: '/'},
+    {image: 'imagen2.jpeg', link: '/second-menu'},
+    {image: 'imagen3.jpeg', link: ''},
+]
+
+const listaSixthOptionMenu1= [
+    {image: 'imagen1.jpg', link: '/'},
+    {image: 'imagen2.jpeg', link: '/'},
+]
+export {background, lista, pila, menu, pilaMenu, listaMenu, pilaSecondMenu, listaSecondMenu, login, pilaOptionMenu, pilaOptionMenu1, listaOptionMenu, listaOptionMenu1, pilaSecondOptionMenu, pilaSecondOptionMenu1, listaSecondOptionMenu, listaSecondOptionMenu1, pilaThirdOptionMenu, pilaThirdOptionMenu1, listaThirdOptionMenu, listaThirdOptionMenu1, pilaFourthOptionMenu, pilaFourthOptionMenu1, listaFourthOptionMenu, listaFourthOptionMenu1, pilaFifthOptionMenu, pilaFifthOptionMenu1, listaFifthOptionMenu, listaFifthOptionMenu1, pilaSixthOptionMenu, pilaSixthOptionMenu1, listaSixthOptionMenu, listaSixthOptionMenu1};

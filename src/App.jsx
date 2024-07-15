@@ -10,6 +10,9 @@ import RegisterPage from './pages/RegisterPage'
 import OptionMenu from './pages/OptionMenu'
 import SecondOptionMenu from './pages/SecondOptionMenu'
 import ThirdOptionMenu from './pages/ThirdOptionMenu'
+import FourthOptionMenu from './pages/FourthOptionMenu'
+import FifthOptionMenu from './pages/FifthOptionMenu'
+import SixthOptionMenu from './pages/SixthOptionMenu'
 
 function App() {
 
@@ -25,6 +28,9 @@ function App() {
         <Route path='/option-menu' element={<OptionMenu/>}/>
         <Route path='/second-option-menu' element={<SecondOptionMenu/>}/>
         <Route path='/third-option-menu' element={<ThirdOptionMenu/>}/>
+        <Route path='/fourth-option-menu' element={<FourthOptionMenu/>}/>
+        <Route path='/fifth-option-menu' element={<FifthOptionMenu/>}/>
+        <Route path='/sixth-option-menu' element={<SixthOptionMenu/>}/>
       </Routes>
     </Router>
   )
