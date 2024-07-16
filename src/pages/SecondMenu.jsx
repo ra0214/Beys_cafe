@@ -1,8 +1,8 @@
 import React from "react";
 import HeaderMenu from "../components/organisms/HeaderMenu";
-import ListaImagenesSecondMenu from "../components/atoms/ListaImagenesMenu";
+import ListaImagenesSecondMenu from "../components/atoms/ListaImagenesSecondMenu";
 import LineaHorizontal from "../components/atoms/LineaHorizontal";
-import ImagenesSecondMenu from "../components/atoms/ImagenesMenu";
+import ImagenesSecondMenu from "../components/atoms/ImagenesSecondMenu";
 import Footer from "../components/organisms/Footer";
 import NavigationButton from "../components/atoms/NavigationButton";
 

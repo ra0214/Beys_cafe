@@ -17,7 +17,7 @@ function LoginForm({ onSubmit, formData, setFormData }) {
         value={formData.password}
         onChange={(e) => setFormData({ ...formData, password: e.target.value })}
       />
-      <Button text="Iniciar Sesión" type="submit" className="w-full bg-gray-500" />
+      <Button text="Iniciar Sesión" type="submit" className="w-full bg-yellow-700" />
     </form>
   );
 }
