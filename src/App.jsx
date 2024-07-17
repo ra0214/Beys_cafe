@@ -19,11 +19,11 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home/>}/>
+        <Route path="/home" element={<Home/>}/>
         <Route path="/ubicacion" element={<Ubicacion/>}/>
         <Route path="/menu" element={<Menu/>}/>
         <Route path="/second-menu" element={<SecondMenu />} />
-        <Route path='/login' element={<LoginPage />} />
+        <Route path='/' element={<LoginPage />} />
         <Route path='/register' element={<RegisterPage />}/>
         <Route path='/option-menu' element={<OptionMenu/>}/>
         <Route path='/second-option-menu' element={<SecondOptionMenu/>}/>
