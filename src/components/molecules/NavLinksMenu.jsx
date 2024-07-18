@@ -25,7 +25,7 @@ function NavLinksMenu() {
           Productos
         </Link>
         <div className="bg-[#926D38] items-center p-2 rounded-md block py-2 md:py-0">
-          <Link to="/" className="text-white no-underline">
+          <Link to="/home" className="text-white no-underline">
             Salir
           </Link>
         </div>

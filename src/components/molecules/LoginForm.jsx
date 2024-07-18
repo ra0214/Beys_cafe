@@ -17,29 +17,32 @@ function LoginForm() {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    fetch(`${import.meta.env.VITE_URL}/client/login`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-      },
-      body: JSON.stringify({ fullname, password })
-    })
-    .then((response) => {
+    setError(null);
+
+    try {
+      const response = await fetch(`http://3.91.162.19/api/client/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+        },
+        body: JSON.stringify({ fullname, password }),
+      });
+
       if (!response.ok) {
-        throw new Error('Error en el inicio de sesión');
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Error en el inicio de sesión');
       }
-      return response.json();
-    })
-    .then((data) => {
+
+      const data = await response.json();
       localStorage.setItem('token', data.token);
       navigate('/home');
-    })
-    .catch((error) => {
+
+    } catch (error) {
       setError(error.message);
-    });
+    }
   };
 
   return (
