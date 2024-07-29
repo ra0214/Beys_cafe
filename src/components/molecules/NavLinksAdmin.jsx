@@ -27,6 +27,9 @@ function NavLinksAdmin() {
         <Link to="/admin" className="text-black no-underline block py-2 md:py-0">
           Agregar Empleado
         </Link>
+        <Link to="/orders" className="text-black no-underline block py-2 md:py-0">
+          View orders
+        </Link>
         <div className="bg-[#926D38] items-center p-2 rounded-md block py-2 md:py-0">
           <Link to="/" className="text-white no-underline">
             Salir

@@ -44,6 +44,7 @@ function ListaImagenesMenu() {
       ...prev,
       [product.product_id]: (prev[product.product_id] || 0) + quantity,
     }));
+    alert("Product added successfully")
   };
 
   const handleRemoveProduct = (product, quantity) => {
@@ -56,15 +57,28 @@ function ListaImagenesMenu() {
     }));
   };
 
-  const handleSubmitOrder = async () => {
-    const client_id = 1; // Debe obtenerse del contexto o de la sesión del usuario
+  const handleSubmitOrder = async (e) => {
+    e.preventDefault();
+    const user_id = 1; // Debe obtenerse del contexto o de la sesión del usuario
     const status = "en preparación";
+    const description = "Orden para la mesa 5"; // Ejemplo de descripción
+    const fullname = localStorage.getItem("name"); // Ejemplo de nombre
     const total = Object.keys(selectedProducts).reduce((sum, productId) => {
       const product = products.find(
         (p) => p.product_id === parseInt(productId, 10)
       );
       return sum + product.price * selectedProducts[productId];
     }, 0);
+
+    const items = Object.keys(selectedProducts).map((productId) => {
+      const product = products.find(
+        (p) => p.product_id === parseInt(productId, 10)
+      );
+      return {
+        product_name: product.product_name,
+        quantity: selectedProducts[productId],
+      };
+    });
 
     try {
       const response = await fetch("http://3.91.162.19/api/order", {
@@ -74,10 +88,17 @@ function ListaImagenesMenu() {
           "Access-Control-Allow-Origin": "*",
         },
         body: JSON.stringify({
-          client_id,
+          user_id,
           status,
+          description,
           total,
-          products: selectedProducts,
+          created_by: "admin", // Ejemplo de creador
+          created_at: new Date().toISOString(),
+          updated_by: "admin", // Ejemplo de actualizador
+          updated_at: new Date().toISOString(),
+          deleted: 0,
+          fullname,
+          items,
         }),
       });
 
@@ -102,8 +123,16 @@ function ListaImagenesMenu() {
   }
 
   return (
-    <div className="space-y-4">
-      <div className="grid grid-cols-3 justify-items-center w-full mb-8 gap-4">
+    <div className="">
+      <div className="flex justify-center items-center">
+        <button
+          className="rounded bg-green-400 py-2 px-4 text-white"
+          onClick={() => setIsOpen(true)}
+        >
+          Abrir carrito
+        </button>
+      </div>
+      <div className="grid grid-cols-4 justify-items-center w-full mb-8 gap-x-2 mt-4">
         {products.map((product) => (
           <ProductCard
             key={product.product_id}
@@ -113,38 +142,37 @@ function ListaImagenesMenu() {
           />
         ))}
       </div>
-      <button onClick={() => setIsOpen(true)}>open</button>
-    {isOpen && (
-  <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center z-50">
-    <div className="bg-white rounded-md shadow-lg p-6 relative z-60">
-      <button
-        onClick={() => setIsOpen(false)}
-        className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
-      >
-        <svg
-          className="w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M6 18L18 6M6 6l12 12"
-          ></path>
-        </svg>
-      </button>
-      <Carrito
-        selectedProducts={selectedProducts}
-        products={products}
-        handleSubmitOrder={handleSubmitOrder}
-      />
-    </div>
-  </div>
-)}
 
+      {isOpen && (
+        <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center z-50">
+          <div className="bg-white rounded-md shadow-lg p-6 relative z-60">
+            <button
+              onClick={() => setIsOpen(false)}
+              className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                ></path>
+              </svg>
+            </button>
+            <Carrito
+              selectedProducts={selectedProducts}
+              products={products}
+              handleSubmitOrder={handleSubmitOrder}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

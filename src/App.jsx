@@ -15,6 +15,7 @@ import FifthOptionMenu from './pages/FifthOptionMenu'
 import SixthOptionMenu from './pages/SixthOptionMenu'
 import Admin from './pages/Admin'
 import RegisterProductPage from './pages/RegisterProductPage'
+import { Order } from './pages/Order'
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
         <Route path='/sixth-option-menu' element={<SixthOptionMenu/>}/>
         <Route path='/admin' element={<Admin/>}/>
         <Route path='/register-product' element={<RegisterProductPage/>}/>
+        <Route path= '/orders' element={<Order/>}></Route>
       </Routes>
     </Router>
   )

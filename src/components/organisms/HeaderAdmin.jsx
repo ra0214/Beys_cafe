@@ -9,6 +9,7 @@ function HeaderAdmin() {
       <Logo className="mr-auto" />
       <Imagen className="ml-auto" />
       <NavLinksAdmin className="ml-auto" />
+      
     </header>
   );
 }
