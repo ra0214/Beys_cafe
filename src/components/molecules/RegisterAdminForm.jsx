@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Input from '../atoms/Input';
 import Button from '../atoms/Button';
 
-function RegisterForm() {
+function RegisterAdminForm() {
   const [fullname, setFullname] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
@@ -33,7 +33,7 @@ function RegisterForm() {
     setError(null);
     setSuccess(null);
 
-    const role_id_fk = 1;
+    const role_id_fk = 2;
     const created_by = 'admin';
     const updated_by = 'admin';
     const deleted = 0;
@@ -55,11 +55,6 @@ function RegisterForm() {
 
       const data = await response.json();
       setSuccess('Registro exitoso. ¡Bienvenido!');
-
-      setTimeout(() => {
-        navigate('/login');
-      }, 2000);
-
     } catch (error) {
       setError(error.message);
     }
@@ -73,8 +68,9 @@ function RegisterForm() {
       <Input type="tel" placeholder="Número de Télefono" value={celphone} onChange={handleChangeCelphone} />
       <Button text="Registrarse" type="submit" className="w-full bg-yellow-700" />
       {error && <p className="text-red-500 text-center">{error}</p>}
+      {success && <p className="text-green-500 text-center">{success}</p>}
     </form>
   );
 }
 
-export default RegisterForm;
+export default RegisterAdminForm;

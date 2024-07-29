@@ -5,13 +5,14 @@ import LineaHorizontal from "../components/atoms/LineaHorizontal";
 import ImagenesSecondMenu from "../components/atoms/ImagenesSecondMenu";
 import Footer from "../components/organisms/Footer";
 import NavigationButton from "../components/atoms/NavigationButton";
+import LineaHorizontalOptionMenu from "../components/atoms/LineaHorizontalOption";
 
 function SecondMenu() {
     return(
         <div>
              <HeaderMenu/>
              <ListaImagenesSecondMenu/>
-             <LineaHorizontal/>
+             <LineaHorizontalOptionMenu/>
              <ImagenesSecondMenu/>
              <div className="flex justify-center mt-4">
                 <NavigationButton to="/menu">1</NavigationButton>

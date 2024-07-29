@@ -13,6 +13,8 @@ import ThirdOptionMenu from './pages/ThirdOptionMenu'
 import FourthOptionMenu from './pages/FourthOptionMenu'
 import FifthOptionMenu from './pages/FifthOptionMenu'
 import SixthOptionMenu from './pages/SixthOptionMenu'
+import Admin from './pages/Admin'
+import RegisterProductPage from './pages/RegisterProductPage'
 
 function App() {
 
@@ -31,6 +33,8 @@ function App() {
         <Route path='/fourth-option-menu' element={<FourthOptionMenu/>}/>
         <Route path='/fifth-option-menu' element={<FifthOptionMenu/>}/>
         <Route path='/sixth-option-menu' element={<SixthOptionMenu/>}/>
+        <Route path='/admin' element={<Admin/>}/>
+        <Route path='/register-product' element={<RegisterProductPage/>}/>
       </Routes>
     </Router>
   )

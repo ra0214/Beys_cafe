@@ -3,7 +3,7 @@ import { listaFourthOptionMenu,  listaFourthOptionMenu1 } from "../../data/Backg
 
 function ListaImagenesFourthOptionMenu() {
   return (
-    <div className='felx flex-col items-center w-full mb-8'>
+    <div className='flex flex-col items-center w-full mb-8'>
       <div className="grid grid-cols-3 justify-items-center w-full">
         {listaFourthOptionMenu.map((item, index) => (
           <a key={index} href={item.link} className='w-full flex justify-center'>

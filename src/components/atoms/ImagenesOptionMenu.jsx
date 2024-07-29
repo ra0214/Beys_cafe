@@ -1,8 +1,86 @@
-import React, { useState } from 'react';
-import { pilaOptionMenu, pilaOptionMenu1 } from "../../data/Background";
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import Button from '../atoms/Button';
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    width: 100%;
+    justify-items: center;
+  }
+  
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f8f8f8;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+  }
+  
+  .product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .product-details {
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+`;
+
+const Line = styled.div`
+  width: 100%;
+  height: 5px;
+  background-color: blue;
+  margin: 2rem 0;
+`;
 
 function ImagenesOptionMenu() {
-  const [quantities, setQuantities] = useState(pilaOptionMenu.map(() => 0));
+  const [products, setProducts] = useState([]);
+  const [quantities, setQuantities] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch('http://3.91.162.19/api/product', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+          },
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          console.error('Error en la respuesta:', errorData);
+          throw new Error(errorData.message || 'Error al obtener los productos');
+        }
+
+        const data = await response.json();
+        const startIndex = data.findIndex(product => product.name === 'Frappe');
+        const filteredProducts = data.slice(startIndex, startIndex + 5);
+        setProducts(filteredProducts);
+        setQuantities(new Array(filteredProducts.length).fill(0));
+      } catch (error) {
+        console.error('Error durante la obtención de productos:', error);
+        setError(error.message);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   const handleIncrement = (index) => {
     const newQuantities = [...quantities];
@@ -16,60 +94,82 @@ function ImagenesOptionMenu() {
     setQuantities(newQuantities);
   };
 
+  const handleSubmitOrder = async () => {
+    const client_id = 1;
+    const status = 'en preparación';
+    const selectedProducts = products.reduce((acc, product, index) => {
+      if (quantities[index] > 0) {
+        acc[product.product_id] = quantities[index];
+      }
+      return acc;
+    }, {});
+    const total = products.reduce((sum, product, index) => {
+      return sum + product.price * quantities[index];
+    }, 0);
+
+    try {
+      const response = await fetch('http://3.91.162.19/api/order', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+        },
+        body: JSON.stringify({ client_id, status, total, products: selectedProducts }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error('Error en la respuesta:', errorData);
+        throw new Error(errorData.message || 'Error al crear la orden');
+      }
+
+      const data = await response.json();
+      console.log('Orden creada exitosamente:', data);
+      setQuantities(new Array(products.length).fill(0));
+    } catch (error) {
+      console.error('Error durante la creación de la orden:', error);
+      setError(error.message);
+    }
+  };
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
   return (
-    <div className="flex flex-col items-center w-full">
-      <div className="grid grid-cols-3 justify-items-center w-full">
-        {pilaOptionMenu.map((item, index) => (
-          <div key={index} className='w-full flex flex-col items-center'>
-            <a href={item.link} className='w-full flex justify-center'>
-              <div className="w-[80%] rounded-full flex justify-center items-center">
-                <img src={item.image} alt={item.description || ''} className="rounded-full w-[80%] h-[80%]" />
+    <Container>
+      <div className="product-grid">
+        {products.map((product, index) => (
+          <div key={product.product_id} className="product-card">
+            <img src={product.image_url} alt={product.description || ''} className="product-image" />
+            <div className="product-details">
+              <h3>{product.name}</h3>
+              <p>${product.price}</p>
+              <div className="flex items-center space-x-2 mt-2">
+                <button 
+                  onClick={() => handleDecrement(index)} 
+                  className="px-2 py-1 bg-[#6E5B54] text-white rounded"
+                >-</button>
+                <span className="px-2">{quantities[index]}</span>
+                <button 
+                  onClick={() => handleIncrement(index)} 
+                  className="px-2 py-1 bg-[#6E5B54] text-white rounded"
+                >+</button>
               </div>
-            </a>
-            <div className="flex items-center space-x-2 mt-2">
-              <button 
-                onClick={() => handleDecrement(index)} 
-                className="px-2 py-1 bg-[#6E5B54] text-white rounded"
-              >-</button>
-              <span className="px-2">{quantities[index]}</span>
-              <button 
-                onClick={() => handleIncrement(index)} 
-                className="px-2 py-1 bg-[#6E5B54] text-white rounded"
-              >+</button>
+              <Button 
+                text="Agregar" 
+                onClick={handleSubmitOrder} 
+                className="mt-2 w-full bg-blue-500 text-white" 
+              />
             </div>
-            <button 
-              className="mt-2 px-4 py-2 bg-[#BF9F88] text-white rounded"
-            >Agregar</button>
           </div>
         ))}
       </div>
-      <div className="grid grid-cols-2 justify-items-center w-[80%] gap-4">
-        {pilaOptionMenu1.map((item, index) => (
-          <div key={index} className='w-full flex flex-col items-center'>
-            <a href={item.link} className='w-full flex justify-center'>
-              <div className="w-[100%] rounded-full flex justify-center items-center">
-                <img src={item.image} alt={item.description || ''} className="rounded-full w-[55%] h-[100%]" />
-              </div>
-            </a>
-            <div className="flex items-center space-x-2 mt-2">
-              <button 
-                onClick={() => handleDecrement(index)} 
-                className="px-2 py-1 bg-[#6E5B54] text-white rounded"
-              >-</button>
-              <span className="px-2">{quantities[index]}</span>
-              <button 
-                onClick={() => handleIncrement(index)} 
-                className="px-2 py-1 bg-[#6E5B54] text-white rounded"
-              >+</button>
-            </div>
-            <button 
-              className="mt-2 px-4 py-2 bg-[#BF9F88] text-white rounded"
-            >Agregar</button>
-          </div>
-        ))}
-      </div>
-    </div>
+      <Line />
+      {/* Otros contenidos de la página, como las imágenes redondas */}
+    </Container>
   );
 }
 
 export default ImagenesOptionMenu;
+

@@ -41,7 +41,17 @@ function LoginForm() {
       console.log('Inicio de sesión exitoso:', data);
       localStorage.setItem('token', data.token);
 
-      navigate('/home');
+      if (data.role_id_fk === 1) {
+        if(data.fullname){
+          localStorage.setItem("name", data.fullname)
+        }
+        navigate('/home');
+      } else if (data.role_id_fk === 2) {
+        navigate('/admin');
+      } else {
+        console.error('Rol desconocido:', data.role_id_fk);
+        setError('Rol desconocido');
+      }
 
     } catch (error) {
       console.error('Error durante el inicio de sesión:', error);

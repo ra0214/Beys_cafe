@@ -31,36 +31,37 @@ const lista = [
 ]
 
 const listaMenu = [
-    {image: 'lista1.jpeg', link: '/option-menu'},
-    {image: 'lista2.jpeg', link: '/option-menu'},
-    {image: 'lista3.jpeg', link: '/second-option-menu'},
+    {image: 'frappe.jpg', link: '/option-menu'},
+    {image: 'frias.jpg', link: '/option-menu'},
+    {image: 'calientes.jpg', link: '/second-option-menu'},
 ]
 
 const pilaMenu= [
-    {image: 'imagen1.jpg', link: '/second-option-menu'},
-    {image: 'imagen2.jpeg', link: '/third-option-menu'},
-    {image: 'imagen3.jpeg', link: '/third-option-menu'},
-    {image: 'imagen4.jpeg', link: '/fourth-option-menu'}
-]
-
-const pilaSecondMenu= [
-    {image: 'imagen1.jpg', link: ''},
-    {image: 'imagen2.jpeg', link: '/second-menu'},
-    {image: 'imagen3.jpeg', link: ''},
-    {image: 'imagen4.jpeg', link: ''},
-    {image: 'imagen1.jpg', link: '/'},
-    {image: 'imagen2.jpeg', link: '/second-menu'},
+    {image: 'italianas.jpg', link: '/second-option-menu'},
+    {image: 'tropicales.jpg', link: '/third-option-menu'},
+    {image: 'te.jpg', link: '/third-option-menu'},
+    {image: 'fondo.jpg',},
+    {image: 'malteadas.jpg', link: '/fourth-option-menu'}
 ]
 
 const listaSecondMenu = [
-    {image: 'lista1.jpeg', link: '/fourth-option-menu'},
-    {image: 'lista2.jpeg', link: '/fifth-option-menu'},
-    {image: 'lista3.jpeg', link: '/fifth-option-menu'}
+    {image: 'pasteles.jpg', link: '/fourth-option-menu'},
+    {image: 'tartas.jpg', link: '/fifth-option-menu'},
+    {image: 'pays.jpg', link: '/fifth-option-menu'}
 ]
 
 const listaSecondMenu1 = [
-    {image: 'lista1.jpeg', link: '/sixth-option-menu'},
-    {image: 'lista2.jpeg', link: '/sixth-option-menu'}
+    {image: 'flan.jpg', link: '/sixth-option-menu'},
+    {image: 'gelatinas.jpg', link: '/sixth-option-menu'}
+]
+
+const pilaSecondMenu= [
+    {image: 'chilaquiles.jpg'},
+    {image: 'omelete.jpg'},
+    {image: 'huevos.jpg'},
+    {image: 'waffles.jpg'},
+    {image: 'hamburguesa.jpg'},
+    {image: 'pollo.jpg'},
 ]
 
 const pilaOptionMenu= [
