@@ -3,10 +3,8 @@ import RegisterCard from '../components/organisms/RegisterCard';
 
 function RegisterPage() {
   return (
-    <div>
-      <main className="flex items-center justify-center h-screen bg-gray-100">
+    <div className="relative h-screen bg-[#f1f2ce] flex items-center justify-center">
         <RegisterCard />
-      </main>
     </div>
   );
 }

@@ -22,7 +22,7 @@ function LoginForm() {
     setError(null);
 
     try {
-      const response = await fetch(`http://3.91.162.19/api/client/login`, {
+      const response = await fetch('http://localhost:8000/api/client/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -33,14 +33,18 @@ function LoginForm() {
 
       if (!response.ok) {
         const errorData = await response.json();
+        console.error('Error en la respuesta:', errorData);
         throw new Error(errorData.message || 'Error en el inicio de sesión');
       }
 
       const data = await response.json();
+      console.log('Inicio de sesión exitoso:', data);
       localStorage.setItem('token', data.token);
+
       navigate('/home');
 
     } catch (error) {
+      console.error('Error durante el inicio de sesión:', error);
       setError(error.message);
     }
   };
