@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Input from '../atoms/Input';
 import Button from '../atoms/Button';
 
@@ -22,7 +22,7 @@ function LoginForm() {
     setError(null);
 
     try {
-      const response = await fetch('http://localhost:8000/api/client/login', {
+      const response = await fetch('http://3.91.162.19/api/client/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -42,8 +42,8 @@ function LoginForm() {
       localStorage.setItem('token', data.token);
 
       if (data.role_id_fk === 1) {
-        if(data.fullname){
-          localStorage.setItem("name", data.fullname)
+        if (data.fullname) {
+          localStorage.setItem("name", data.fullname);
         }
         navigate('/home');
       } else if (data.role_id_fk === 2) {
@@ -65,6 +65,9 @@ function LoginForm() {
       <Input type="password" placeholder="Contraseña" value={password} onChange={handleChangePassword} />
       <Button text="Iniciar Sesión" type="submit" className="w-full bg-yellow-700" />
       {error && <p className="text-red-500 text-center">{error}</p>}
+      <p className="text-center">
+        No tienes sesión, <Link to="/register" className="text-blue-500 underline">crea una aquí</Link>
+      </p>
     </form>
   );
 }

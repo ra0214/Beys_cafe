@@ -44,7 +44,7 @@ function ListaImagenesMenu() {
       ...prev,
       [product.product_id]: (prev[product.product_id] || 0) + quantity,
     }));
-    alert("Product added successfully")
+    alert("Producto agregado exitosamente");
   };
 
   const handleRemoveProduct = (product, quantity) => {
@@ -110,6 +110,8 @@ function ListaImagenesMenu() {
 
       const data = await response.json();
       console.log("Orden creada exitosamente:", data);
+      // Mostrar alerta de notificación
+      alert("Su pedido ha sido procesado, estará listo en 40 minutos");
       // Resetear el estado después de crear la orden
       setSelectedProducts({});
     } catch (error) {

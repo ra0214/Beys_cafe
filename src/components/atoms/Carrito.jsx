@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Carrito({ selectedProducts, products, handleSubmitOrder, isClose }) {
+function Carrito({ selectedProducts, products, handleSubmitOrder }) {
   const cartItems = Object.keys(selectedProducts).map((productId) => {
     const product = products.find((p) => p.product_id === parseInt(productId, 10));
     return { ...product, quantity: selectedProducts[productId] };

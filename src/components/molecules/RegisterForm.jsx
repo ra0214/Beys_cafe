@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Input from '../atoms/Input';
 import Button from '../atoms/Button';
 
@@ -73,6 +73,10 @@ function RegisterForm() {
       <Input type="tel" placeholder="Número de Télefono" value={celphone} onChange={handleChangeCelphone} />
       <Button text="Registrarse" type="submit" className="w-full bg-yellow-700" />
       {error && <p className="text-red-500 text-center">{error}</p>}
+      {success && <p className="text-green-500 text-center">{success}</p>}
+      <p className="text-center mt-4">
+        Regresar al <Link to="/" className="text-blue-500 underline">inicio de sesión</Link>
+      </p>
     </form>
   );
 }
